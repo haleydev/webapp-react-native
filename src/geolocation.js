@@ -31,7 +31,7 @@ export default {
                 }
             }
 
-            requestPermission();
+            requestPermission();         
         }
 
         const getLocation = () => {
@@ -50,7 +50,7 @@ export default {
                 { enableHighAccuracy: true, timeout: 4000, maximumAge: 0 }
             )
 
-            const watchID = Geolocation.watchPosition((position) => {
+            this.id = Geolocation.watchPosition((position) => {
                 const currentLatitude = JSON.stringify(position.coords.latitude);
                 const currentLongitude = JSON.stringify(position.coords.longitude);
                 this.latitude = currentLatitude;
@@ -58,12 +58,10 @@ export default {
 
                 alert(currentLatitude + currentLongitude)
             });
-
-            this.id = watchID;
         }
+    },
 
-        const clearLocation = () => {
-            Geolocation.clearWatch(this.id);
-        }
+    clear: function () {
+        Geolocation.clearWatch(this.id);
     }
 }
