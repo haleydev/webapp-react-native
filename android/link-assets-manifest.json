@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/geolocation.js",
+      "sha1": "e63b85eefba79e98e0eeb10b530043a37d0b2512"
+    },
+    {
+      "path": "src/notification.js",
+      "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    }
+  ]
+}

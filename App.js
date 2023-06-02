@@ -1,22 +1,23 @@
 import { StyleSheet, View,PermissionsAndroid } from 'react-native';
 import WebView from 'react-native-webview';
-import Constants from 'expo-constants'
+import Constants from 'expo-constants';
+import geolocation from './src/geolocation';
 
 export default function App() {
+  const device = Constants.deviceName ?? null;
+  const platform = Constants.platform ?? null;
+  const version = Constants.systemVersion ?? null;
+
+  console.log(geolocation.init())
+
+  setInterval(() => {
+    if(geolocation.latitude !== '') {
+      console.log(geolocation.latitude,geolocation.longitude)
+    }
+  }, 2000);
 
   const functions_before =
   `alert('helo word')`;
-
-  PermissionsAndroid.request(
-    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    {
-      title: 'Location Access Permission',
-      message: 'We would like to use your location',
-      buttonPositive: 'Okay'
-    }
-  );
-
-  console.log(Constants.deviceName)
 
   return (
     <View style={styles.container}>
@@ -28,10 +29,7 @@ export default function App() {
         allowFileAccess={true}
         domStorageEnabled={true}
         mediaPlaybackRequiresUserAction={false}
-        onTouchEnd={function(e) {
-          console.log(e)
-        }}
-
+    
         originWhitelist={'https://ninosflores.codehalley.com'}
         source={{ uri: 'https://ninosflores.codehalley.com', baseUrl: 'https://ninosflores.codehalley.com' }}
 
