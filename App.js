@@ -5,8 +5,7 @@ import Constants from 'expo-constants'
 export default function App() {
 
   const functions_before =
-  `
-  `;
+  `alert('helo word')`;
 
   PermissionsAndroid.request(
     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -18,21 +17,6 @@ export default function App() {
   );
 
   console.log(Constants.deviceName)
-
-
-  // onBackButtonPressAndroid = (e) => {   
-  //   if (this.state.canGoBack) {
-  //     if (this.webview.goBack) {
-  //       this.webview.goBack();
-  //     }
-
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-
-  // () => props.navigation?.openDrawer()
 
   return (
     <View style={styles.container}>
